@@ -33,5 +33,5 @@ plt.legend()
 # plt.plot(res_WON["CNN train_accuracy_list"], c="purple", label="CNN on data without noise")
 # plt.legend()
 
-# plt.show()
-plt.savefig(f'comparison test accuracy.png')
+plt.show()
+# plt.savefig(f'comparison test accuracy.png')

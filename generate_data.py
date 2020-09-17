@@ -128,26 +128,3 @@ def sum_params(model):
             sum += multiplyList(params.shape)
     print(f"sum :{sum}")
 
-
-#
-# data = []
-# data_size = 10000
-# stders = [1,2,3]
-# for i in range(data_size):
-#     stder = sample(stders,1)
-#     x = np.random.normal(0,stder,144)
-#     stder = stder[0]
-#     data.append((x.reshape((12,12)),stder))
-#
-# correct = 0
-# total = 0
-#
-# for data_point in data:
-#     x, label = data_point[0], data_point[1]
-#     # if (label -2.5) <= x.std() <= (label+2.5):
-#     if round(x.std()) == label:
-#         correct += 1
-#     total += 1
-#
-# print(f"the accuracy is: {correct/total}")
-#

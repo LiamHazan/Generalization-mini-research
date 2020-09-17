@@ -18,7 +18,6 @@ img_size = 32
 data_size_for_class = 2500
 circle_label = torch.tensor([0])
 square_label = torch.tensor([1])
-# noise_label = torch.tensor([2])
 # rectangle_label = torch.tensor([2])
 # triangle_label = torch.tensor([3])
 num_classes = 2
@@ -28,15 +27,15 @@ add_noise = False
 random_lables = True
 
 lables = [torch.tensor([0]), torch.tensor([1])]
-# for i in range(data_size_for_class):
-#     if random_lables:
-#         data.append((gen_circle(img_size,choice(range(5,int(img_size*0.5))), add_noise=add_noise),choice(lables)))
-#         data.append((gen_square(img_size,choice(range(7,img_size+1)), add_noise=add_noise),choice(lables)))
-#     else:
-#         data.append((gen_circle(img_size, choice(range(5, int(img_size * 0.5))), add_noise=add_noise), circle_label))
-#         data.append((gen_square(img_size, choice(range(7, img_size + 1)), add_noise=add_noise), square_label))
 for i in range(data_size_for_class):
-    data.append((gen_noise(img_size),choice(lables)))
+    if random_lables:
+        data.append((gen_circle(img_size,choice(range(5,int(img_size*0.5))), add_noise=add_noise),choice(lables)))
+        data.append((gen_square(img_size,choice(range(7,img_size+1)), add_noise=add_noise),choice(lables)))
+    else:
+        data.append((gen_circle(img_size, choice(range(5, int(img_size * 0.5))), add_noise=add_noise), circle_label))
+        data.append((gen_square(img_size, choice(range(7, img_size + 1)), add_noise=add_noise), square_label))
+# for i in range(data_size_for_class):
+#     data.append((gen_noise(img_size),choice(lables)))
 
 
 train_set = data[:int(0.8*data_size_for_class*num_classes)]
